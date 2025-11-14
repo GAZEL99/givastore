@@ -1,5 +1,24 @@
 {
   "rewrites": [
-    { "source": "/:path", "destination": "/:path.html" }
+    { "source": "/payment/indexpay", "destination": "/payment/indexpay.html" },
+    { "source": "/NETFLIX", "destination": "/NETFLIX.html" },
+    { "source": "/vidio", "destination": "/vidio.html" },
+    { "source": "/disney", "destination": "/disney.html" },
+    { "source": "/YouTube", "destination": "/YouTube.html" },
+    { "source": "/amazonprime", "destination": "/amazonprime.html" },
+    { "source": "/iqiyi", "destination": "/iqiyi.html" },
+    { "source": "/dramabox", "destination": "/dramabox.html" },
+    { "source": "/loklok", "destination": "/loklok.html" },
+    { "source": "/hbogo", "destination": "/hbogo.html" },
+    { "source": "/HBOGOMAX", "destination": "/HBOGOMAX.html" },
+    { "source": "/youkou", "destination": "/youkou.html" },
+    { "source": "/Spotify", "destination": "/Spotify.html" },
+    { "source": "/canva", "destination": "/canva.html" },
+    { "source": "/capcut", "destination": "/capcut.html" },
+    { "source": "/Picsart", "destination": "/Picsart.html" },
+    { "source": "/IbisPaint", "destination": "/IbisPaint.html" },
+    { "source": "/AlightMotion", "destination": "/AlightMotion.html" },
+
+    { "source": "/", "destination": "/Index.html" }
   ]
 }
