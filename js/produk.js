@@ -1,5 +1,4 @@
-[file name]: produk.js
-[file content begin]
+
 // produk.js - Data semua produk dari products-data.js
 const semuaProduk = {
   // 🔥 STREAMING
