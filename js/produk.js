@@ -557,7 +557,7 @@ const semuaProduk = {
     packages: [
       {
         name: "CANVA Member + design",
-        price: 2000,
+        price: 2300,
         duration: "1 BULAN"
       },
       {
