@@ -259,7 +259,7 @@ window.productData = {
       id: 16,
       name: "Canva",
       category: "Editing",
-      price: 2000,
+      price: 2300,
       originalPrice: 10000,
       image: "../image/canva.png",
       discount: 80,
