@@ -21,7 +21,7 @@ window.productData = {
       discount: 63,
       isPopular: true,
       isFlashSale: true,
-      pageUrl: "pages/product.html?product=Netflix",
+      pageUrl: "../pages/product.html?product=Netflix",
       description: "Layanan streaming film dan series terpopuler",
       features: ["Aktif Instan", "Garansi 30 Hari", "Support 24/7"],
       stock: 100,
