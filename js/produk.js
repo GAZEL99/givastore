@@ -320,7 +320,7 @@ const semuaProduk = {
     packages: [
       {
         name: "HBO GO Sharing",
-        price: 500,
+        price: 15500,
         duration: "1 BULAN"
       },
       {
