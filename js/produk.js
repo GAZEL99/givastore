@@ -141,7 +141,7 @@ const semuaProduk = {
     packages: [
       {
         name: " Prime  Shared 1 Bulan",
-        price: 1000,
+        price: 10000,
         duration: "1 BULAN"
       },
       {
