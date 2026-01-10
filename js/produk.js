@@ -126,11 +126,7 @@ const semuaProduk = {
         price: 13000,
         duration: "1 BULAN"
       },
-      {
-        name: "YOUTUBE Mix (famplan & indplan)",
-        price: 17000,
-        duration: "2 BULAN"
-      }
+      
     ]
   },
 
