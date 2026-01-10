@@ -33,7 +33,7 @@ window.productData = {
       name: "Vidio Premium",
       category: "Streaming",
       price: 25000, // DISESUAIKAN DENGAN products-data.js
-      originalPrice: 35000,
+      originalPrice: 65000,
       image: "../image/vidio.png",
       discount: 43,
       isPopular: false,
@@ -64,7 +64,7 @@ window.productData = {
       id: 4,
       name: "YouTube Premium",
       category: "Streaming",
-      price: 8000, // DISESUAIKAN DENGAN products-data.js
+      price: 5500, // DISESUAIKAN DENGAN products-data.js
       originalPrice: 65000,
       image: "../image/youtube.png",
       discount: 95,
@@ -80,7 +80,7 @@ window.productData = {
       id: 5,
       name: "Amazon Prime Video",
       category: "Streaming",
-      price: 11500, // DISESUAIKAN DENGAN products-data.js
+      price: 1000, // DISESUAIKAN DENGAN products-data.js
       originalPrice: 12000,
       image: "../image/prime-video.png",
       discount: 46,
@@ -208,7 +208,7 @@ window.productData = {
       id: 13,
       name: "Bstation Premium",
       category: "Streaming",
-      price: 11000, // DISESUAIKAN DENGAN products-data.js
+      price: 6000, // DISESUAIKAN DENGAN products-data.js
       originalPrice: 35000,
       image: "../image/bstation.png",
       discount: 83,
@@ -224,7 +224,7 @@ window.productData = {
       id: 14,
       name: "Youkou VIP",
       category: "Streaming",
-      price: 15000, // DISESUAIKAN DENGAN products-data.js
+      price: 10000, // DISESUAIKAN DENGAN products-data.js
       originalPrice: 30000,
       image: "../image/youkou.png",
       discount: 67,
@@ -242,7 +242,7 @@ window.productData = {
       id: 15,
       name: "Spotify Premium",
       category: "Musik",
-      price: 26000, // DISESUAIKAN DENGAN products-data.js
+      price: 10000, // DISESUAIKAN DENGAN products-data.js
       originalPrice: 75000,
       image: "../image/spotify.png",
       discount: 72,
@@ -276,7 +276,7 @@ window.productData = {
       id: 17,
       name: "Capcut Pro",
       category: "Editing",
-      price: 16000, // DISESUAIKAN DENGAN products-data.js
+      price: 5000, // DISESUAIKAN DENGAN products-data.js
       originalPrice: 25000,
       image: "../image/capcut.png",
       discount: 56,
