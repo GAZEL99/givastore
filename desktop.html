@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GIVASTORE.ID - Tempat terbaik untuk produk digital murah dan terpercaya">
+  <title>GIVASTORE.ID - Produk Digital Murah & Terpercaya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="image/icon.jpg" type="image/jpeg">
+  
+  <style>
+    /* ==================== MODERN CSS RESET & VARIABLES ==================== */
+    
+    @font-face {
+      font-family: 'Pricedown';
+      src: url('pricedown bl.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    :root {
+      /* Colors (Unchanged) */
+      --primary: #0A1931;
+      --primary-alt: #152C5B;
+      --accent: #1E40AF;
+      --secondary: #3B82F6;
+      --text-dark: #0F172A;
+      --text: #334155;
+      --text-light: #64748B;
+      --bg-light: #F8FAFC;
+      --bg-gradient: linear-gradient(180deg, #F1F5F9 0%, #E2E8F0 100%);
+      --light: #FFFFFF;
+      --light-gray: #F1F5F9;
+      --gray: #CBD5E1;
+      
+      /* Refined UI Variables */
+      --border: rgba(148, 163, 184, 0.2);
+      --glass-bg: rgba(255, 255, 255, 0.95);
+      --glass-border: rgba(255, 255, 255, 0.8);
+      
+      /* Modern Shadows */
+      --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.05);
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+      --shadow-hover: 0 20px 30px -10px rgba(15, 23, 42, 0.15);
+      --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+      --radius: 16px;
+      --radius-lg: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.dark-mode {
+      --primary: #0A1931;
+      --primary-alt: #152C5B;
+      --accent: #3B82F6;
+      --text-dark: #F8FAFC;
+      --text: #E2E8F0;
+      --text-light: #94A3B8;
+      --bg-light: #0B1120;
+      --bg-gradient: linear-gradient(180deg, #020617 0%, #0F172A 100%);
+      --light: #1e293b;
+      --light-gray: #0f172a;
+      --gray: #334155;
+      --border: rgba(255, 255, 255, 0.08);
+      --glass-bg: rgba(15, 23, 42, 0.9);
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      --shadow-hover: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+    button { border: none; outline: none; background: none; font-family: inherit; }
+
+    /* ==================== NAVBAR ==================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 70px;
+      transition: var(--transition);
+    }
+
+    .navbar-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      height: 100%;
+      padding: 0 1.5rem;
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-image {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    
+    /* Logo logic remains same */
+    .logo-light { display: block; }
+    .logo-dark { display: none; }
+    body.dark-mode .logo-light { display: none; }
+    body.dark-mode .logo-dark { display: block; }
+
+    .brand-text {
+      font-family: 'Pricedown', sans-serif;
+      font-size: 1.75rem;
+      color: var(--text-dark);
+      letter-spacing: 1px;
+    }
+    
+    body.dark-mode .brand-text { color: #fff; }
+
+    /* Desktop Menu */
+    .navbar-center { display: none; }
+    
+    @media (min-width: 1024px) {
+      .navbar-center { display: flex; flex: 1; justify-content: center; }
+      .navbar-menu { display: flex; gap: 0.5rem; background: var(--light-gray); padding: 0.3rem; border-radius: 50px; border: 1px solid var(--border); }
+      .navbar-menu-item {
+        padding: 0.5rem 1.25rem;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text);
+      }
+      .navbar-menu-item:hover, .navbar-menu-item.active {
+        background: var(--light);
+        color: var(--accent);
+        box-shadow: var(--shadow-sm);
+      }
+      body.dark-mode .navbar-menu-item:hover, 
+      body.dark-mode .navbar-menu-item.active {
+        background: var(--accent);
+        color: white;
+      }
+    }
+
+    /* Mobile Menu Button */
+    .navbar-menu-button {
+      width: 40px;
+      height: 40px;
+      background: var(--light-gray);
+      border-radius: 10px;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+    }
+    
+    @media (min-width: 1024px) { .navbar-menu-button { display: none; } }
+
+    /* Dark Mode Toggle */
+    .dark-mode-toggle {
+      background: var(--light-gray);
+      color: var(--text-dark);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      border: 1px solid var(--border);
+    }
+    
+    .dark-mode-toggle:hover { background: var(--gray); }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem;
+      z-index: 99;
+      transform: translateY(-150%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow);
+    }
+    
+    .mobile-menu.open { transform: translateY(0); }
+    
+    .mobile-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      border-radius: 12px;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+    
+    .mobile-menu-item:hover, .mobile-menu-item.active {
+      background: var(--light-gray);
+      color: var(--accent);
+    }
+
+    /* ==================== CAROUSEL ==================== */
+    .carousel-container {
+      max-width: 1280px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .carousel-wrapper {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+      aspect-ratio: 21/9;
+      max-height: 400px;
+    }
+    
+    @media (max-width: 768px) { .carousel-wrapper { aspect-ratio: 16/9; } }
+
+    .carousel { height: 100%; width: 100%; position: relative; }
+    .carousel-slides { display: flex; height: 100%; transition: transform 0.5s ease; }
+    .carousel-slide { min-width: 100%; height: 100%; }
+    
+    .carousel-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--primary);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      z-index: 10;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .carousel-wrapper:hover .carousel-btn { opacity: 1; }
+    #prevBtn { left: 20px; }
+    #nextBtn { right: 20px; }
+    
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+    
+    .carousel-indicator {
+      width: 24px;
+      height: 4px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .carousel-indicator.active { background: white; width: 32px; }
+
+    /* ==================== FLASH SALE ==================== */
+    .flashsale-container {
+      max-width: 1280px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .flashsale-card {
+      background: var(--light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .flashsale-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .flashsale-title {
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .countdown-timer {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      color: white;
+      font-weight: 700;
+    }
+
+    .countdown-unit {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(4px);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 0.9rem;
+    }
+
+    .marquee-container {
+      padding: 1.5rem 0;
+      background: var(--light);
+      position: relative;
+    }
+    
+    .marquee-content {
+      display: flex;
+      gap: 1.5rem;
+      padding-left: 1.5rem;
+      /* Animation handled by JS/Keyframes */
+      animation: marquee 30s linear infinite;
+    }
+    
+    .marquee-container:hover .marquee-content { animation-play-state: paused; }
+
+    .flashsale-item {
+      min-width: 260px;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flashsale-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--secondary);
+    }
+
+    .flashsale-item-image {
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    
+    .flashsale-item-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    .flashsale-item-details { flex: 1; }
+    
+    .flashsale-item-name {
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
+    }
+    
+    .flashsale-item-price {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 1rem;
+    }
+    
+    .flashsale-item-original-price {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+    
+    .discount-badge {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      background: #EF4444;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 0 12px 0 12px;
+      z-index: 2;
+    }
+
+    /* ==================== POPULAR PRODUCTS ==================== */
+    .popular-container {
+      max-width: 1280px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .popular-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .popular-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .popular-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .popular-item {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .popular-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--secondary);
+    }
+
+    .popular-item-image {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .popular-item-image img { width: 100%; height: 100%; object-fit: cover; }
+    
+    .popular-item-title {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .popular-item-buy-button {
+      display: block;
+      width: 100%;
+      padding: 0.6rem;
+      background: var(--light-gray);
+      color: var(--primary);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .popular-item:hover .popular-item-buy-button {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* ==================== CATEGORIES & GRID ==================== */
+    .category-tabs-container {
+      max-width: 1280px;
+      margin: 0 auto 2rem;
+      padding: 0 1.5rem;
+    }
+
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .category-tab {
+      padding: 0.75rem 1.5rem;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-weight: 500;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .category-tab:hover, .category-tab.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(10, 25, 49, 0.2);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 3rem 0 2rem;
+      color: var(--text-dark);
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .product-grid {
+      max-width: 1280px;
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+    
+    @media (max-width: 640px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0 1rem; }
+    }
+
+    /* Modern Product Card */
+    .product-card {
+      background: var(--light);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .product-card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .product-card:hover img { transform: scale(1.05); }
+
+    .product-title {
+      padding: 1.25rem 1rem 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-dark);
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .buy-button {
+      margin: 1rem;
+      padding: 0.85rem;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      box-shadow: 0 4px 10px rgba(30, 64, 175, 0.2);
+    }
+
+    .buy-button:hover {
+      box-shadow: 0 6px 15px rgba(30, 64, 175, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      background: var(--light);
+      border-top: 1px solid var(--border);
+      padding: 4rem 1.5rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+    }
+
+    .footer-logo {
+      font-family: 'Pricedown', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    body.dark-mode .footer-logo { color: white; }
+
+    .footer-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links { display: flex; flex-direction: column; gap: 0.8rem; }
+    
+    .footer-links a {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .footer-links a:hover { color: var(--accent); transform: translateX(5px); }
+
+    .footer-social { display: flex; gap: 1rem; margin-top: 1.5rem; }
+    
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--light-gray);
+      color: var(--text-dark);
+      display: grid;
+      place-items: center;
+      transition: var(--transition);
+    }
+    
+    .footer-social a:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .payment-methods {
+      display: inline-flex;
+      gap: 1rem;
+      background: var(--light-gray);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    /* ==================== ANIMATIONS ==================== */
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    
+    .animate-fade-in-up { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+    .pulse { animation: pulse 1.5s infinite; }
+
+    /* Loading & Error */
+    .loading, .error-message {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+  
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-content">
+      <div class="navbar-left navbar-brand">
+        <button class="navbar-menu-button" id="mobileMenuButton">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="index.html" class="navbar-brand">
+          <img src="image/logo-light.png" alt="Logo" class="logo-image logo-light" onerror="this.src='https://via.placeholder.com/40x40/1E40AF/FFFFFF?text=GS';">
+          <img src="image/logo-dark.png" alt="Logo" class="logo-image logo-dark" onerror="this.src='https://via.placeholder.com/40x40/60A5FA/0A1931?text=GS';">
+          <span class="brand-text">GIVASTORE</span>
+        </a>
+      </div>
+      
+      <div class="navbar-center">
+        <div class="navbar-menu">
+          <a href="index.html" class="navbar-menu-item active">Home</a>
+          <a href="kontak.html" class="navbar-menu-item">Kontak</a>
+          <a href="caraorder.html" class="navbar-menu-item">Cara Order</a>
+          <a href="https://whatsapp.com/channel/0029Vb7Ff3HAu3aNjiRSIw2g" target="_blank" class="navbar-menu-item">Testimoni</a>
+          <a href="https://whatsapp.com/channel/0029Vb7Ff3HAu3aNjiRSIw2g" target="_blank" class="navbar-menu-item">Promo</a>
+        </div>
+      </div>
+      
+      <div class="navbar-right">
+        <button class="dark-mode-toggle" id="darkModeToggle">
+          <i class="fas fa-moon mode-icon"></i>
+          <span class="dark-mode-text">Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-menu-item active"><i class="fas fa-home"></i> Home</a>
+    <a href="kontak.html" class="mobile-menu-item"><i class="fas fa-envelope"></i> Kontak</a>
+    <a href="caraorder.html" class="mobile-menu-item"><i class="fas fa-shopping-cart"></i> Cara Order</a>
+    <a href="https://whatsapp.com/channel/0029Vb7Ff3HAu3aNjiRSIw2g" target="_blank" class="mobile-menu-item"><i class="fas fa-star"></i> Testimoni</a>
+    <a href="https://whatsapp.com/channel/0029Vb7Ff3HAu3aNjiRSIw2g" target="_blank" class="mobile-menu-item"><i class="fas fa-percentage"></i> Info Promo</a>
+  </div>
+</nav>
+
+  <div class="carousel-container animate-fade-in-up" style="animation-delay: 0.1s;">
+    <div class="carousel-wrapper">
+      <div class="carousel">
+        <div class="carousel-slides" id="carouselSlides">
+          <div class="carousel-slide">
+            <a href="#" class="carousel-link">
+              <img src="image/baner1.jpg" alt="Flash Sale GIVASTORE" class="carousel-image" onerror="this.src='https://via.placeholder.com/1280x500/0A1931/FFFFFF?text=GIVASTORE+Flash+Sale'">
+            </a>
+          </div>
+          <div class="carousel-slide">
+            <a href="#" class="carousel-link">
+              <img src="image/baner2.jpg" alt="Produk Terbaru" class="carousel-image" onerror="this.src='https://via.placeholder.com/1280x500/152C5B/FFFFFF?text=Produk+Terbaru'">
+            </a>
+          </div>
+          <div class="carousel-slide">
+            <a href="#" class="carousel-link">
+              <img src="image/baner3.jpg" alt="Promo Spesial" class="carousel-image" onerror="this.src='https://via.placeholder.com/1280x500/1E40AF/FFFFFF?text=Promo+Spesial'">
+            </a>
+          </div>
+        </div>
+        <button class="carousel-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-indicators">
+          <div class="carousel-indicator active"></div>
+          <div class="carousel-indicator"></div>
+          <div class="carousel-indicator"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flashsale-container animate-fade-in-up" style="animation-delay: 0.2s;">
+    <div class="flashsale-card">
+      <div class="flashsale-header">
+        <div class="flashsale-title">
+          <i class="fas fa-bolt" style="color: #FCD34D;"></i> Flash Sale Terbatas
+        </div>
+        <div class="countdown-timer" id="countdownTimer">
+          </div>
+      </div>
+      <div class="marquee-container">
+        <div class="marquee-content" id="marqueeContent">
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popular-container animate-fade-in-up" style="animation-delay: 0.3s;">
+    <div class="popular-header">
+      <div class="popular-title">Produk Populer 🔥</div>
+      <p style="color: var(--text-light);">Paling banyak dicari minggu ini</p>
+    </div>
+    <div class="popular-grid" id="popularGrid">
+      </div>
+  </div>
+
+  <div id="main-content" class="animate-fade-in-up" style="animation-delay: 0.4s;">
+    <h2 class="section-title">Semua Produk</h2>
+    
+    <div class="category-tabs-container">
+      <div class="category-tabs" id="categoryTabs">
+        </div>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <div class="loading">
+        <i class="fas fa-spinner fa-spin fa-2x"></i><br><br>Memuat produk...
+      </div>
+    </div>
+  </div>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <div class="footer-logo">GIVASTORE</div>
+      <p style="color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem;">
+        Platform produk digital termurah dan terpercaya di Indonesia. Layanan otomatis 24/7 dengan metode pembayaran lengkap.
+      </p>
+      <div class="footer-social">
+        <a href="https://wa.me/6285189139082" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com/givastore.id" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/givastoreid" target="_blank"><i class="fab fa-telegram"></i></a>
+        <a href="mailto:xyzopedia@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h3 class="footer-heading">Navigasi</h3>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="kontak.html">Hubungi Kami</a>
+        <a href="caraorder.html">Cara Pemesanan</a>
+        <a href="#">Syarat & Ketentuan</a>
+        <a href="#">Kebijakan Privasi</a>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h3 class="footer-heading">Layanan Pelanggan</h3>
+      <div class="footer-links">
+        <a href="https://wa.me/6285189139082" target="_blank"><i class="fab fa-whatsapp"></i> +62 851-8913-9082</a>
+        <a href="https://instagram.com/givastore.id" target="_blank"><i class="fab fa-instagram"></i> @givastore.id</a>
+        <a href="mailto:xyzopedia@gmail.com"><i class="fas fa-envelope"></i> xyzopedia@gmail.com</a>
+        <div style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
+          <i class="fas fa-clock"></i> Jam Operasional: 24 Jam
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <div class="payment-methods">
+      <span><i class="fas fa-lock"></i> Pembayaran Aman:</span>
+      <span style="font-weight: 600;">QRIS</span>
+      <span style="font-weight: 600;">E-Wallet</span>
+      <span style="font-weight: 600;">Bank Transfer</span>
+    </div>
+    <p>&copy; 2025 GIVASTORE.ID. All Rights Reserved.</p>
+  </div>
+</footer>
+
+  <script>
+    // Logic Javascript tetap sama seperti sebelumnya, hanya disesuaikan sedikit selectornya jika perlu
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const modeIcon = document.querySelector('.mode-icon');
+    const carouselSlides = document.getElementById('carouselSlides');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    const marqueeContent = document.getElementById('marqueeContent');
+    const popularGrid = document.getElementById('popularGrid');
+    const categoryTabs = document.getElementById('categoryTabs');
+    const productGrid = document.getElementById('productGrid');
+    const countdownTimer = document.getElementById('countdownTimer');
+
+    function handleImageError(img) {
+      img.src = 'https://via.placeholder.com/300x300/1E40AF/FFFFFF?text=GIVASTORE';
+    }
+
+    // Dark mode
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+      if (modeIcon) { modeIcon.classList.replace("fa-moon", "fa-sun"); }
+    }
+
+    if (darkModeToggle) {
+      darkModeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        if (modeIcon) {
+          isDark ? modeIcon.classList.replace("fa-moon", "fa-sun") : modeIcon.classList.replace("fa-sun", "fa-moon");
+        }
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+    }
+
+    // Mobile Menu
+    if (mobileMenuButton) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+      });
+    }
+    document.addEventListener('click', (e) => {
+      if (mobileMenuButton && mobileMenu && !mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+      }
+    });
+
+    // Carousel Logic
+    let currentSlide = 0;
+    const totalSlides = document.querySelectorAll('.carousel-slide').length;
+
+    function updateCarousel() {
+      if (carouselSlides) {
+        carouselSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        document.querySelectorAll('.carousel-indicator').forEach((ind, i) => {
+          ind.classList.toggle('active', i === currentSlide);
+        });
+      }
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; updateCarousel(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { currentSlide = (currentSlide + 1) % totalSlides; updateCarousel(); });
+    setInterval(() => { currentSlide = (currentSlide + 1) % totalSlides; updateCarousel(); }, 5000);
+
+    // Countdown Logic
+    function updateCountdown() {
+      if (!countdownTimer) return;
+      const endDate = new Date('November 20, 2025 23:59:59').getTime();
+      const now = new Date().getTime();
+      const timeLeft = endDate - now;
+
+      if (timeLeft < 0) {
+        countdownTimer.innerHTML = 'Flash Sale Berakhir';
+        return;
+      }
+
+      const h = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      countdownTimer.innerHTML = `
+        <div class="countdown-unit">${h.toString().padStart(2,'0')}</div> :
+        <div class="countdown-unit">${m.toString().padStart(2,'0')}</div> :
+        <div class="countdown-unit">${s.toString().padStart(2,'0')}</div>
+      `;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Data Loading Logic (Simulated)
+    async function loadProductData() {
+      // Menggunakan data default langsung untuk demo agar tampilan langsung terlihat
+      return {
+        products: [
+          { id: 1, name: "Netflix Premium 1 Bulan", category: "Streaming", price: 18000, originalPrice: 49000, image: "https://via.placeholder.com/300/E50914/FFFFFF?text=Netflix", isPopular: true, isFlashSale: true },
+          { id: 2, name: "Spotify Premium 1 Bulan", category: "Musik", price: 18000, originalPrice: 75000, image: "https://via.placeholder.com/300/1DB954/FFFFFF?text=Spotify", isPopular: true, isFlashSale: false },
+          { id: 3, name: "Canva Pro 1 Bulan", category: "Editing", price: 2000, originalPrice: 10000, image: "https://via.placeholder.com/300/00C4CC/FFFFFF?text=Canva", isPopular: true, isFlashSale: false },
+          { id: 4, name: "Youtube Premium", category: "Streaming", price: 5000, originalPrice: 20000, image: "https://via.placeholder.com/300/FF0000/FFFFFF?text=Youtube", isPopular: true, isFlashSale: true },
+          { id: 5, name: "Disney+ Hotstar", category: "Streaming", price: 25000, originalPrice: 45000, image: "https://via.placeholder.com/300/113CCF/FFFFFF?text=Disney", isPopular: false, isFlashSale: true },
+           { id: 6, name: "Vidio Platinum", category: "Streaming", price: 15000, originalPrice: 29000, image: "https://via.placeholder.com/300/FF4081/FFFFFF?text=Vidio", isPopular: false, isFlashSale: false }
+        ],
+        categories: [{ name: "Semua Produk" }, { name: "Streaming" }, { name: "Musik" }, { name: "Editing" }]
+      };
+    }
+
+    function populateFlashSale(data) {
+      if (!marqueeContent) return;
+      const items = data.products.filter(p => p.isFlashSale);
+      marqueeContent.innerHTML = '';
+      if(items.length === 0) return;
+
+      // Duplicate for marquee effect
+      const loopItems = [...items, ...items, ...items]; 
+      
+      loopItems.forEach(p => {
+        const div = document.createElement('a');
+        div.href = "#";
+        div.className = 'flashsale-item';
+        div.innerHTML = `
+          <div class="discount-badge">SAVE</div>
+          <div class="flashsale-item-image"><img src="${p.image}" onerror="handleImageError(this)"></div>
+          <div class="flashsale-item-details">
+            <div class="flashsale-item-name">${p.name}</div>
+            <div class="flashsale-item-original-price">Rp ${p.originalPrice.toLocaleString('id-ID')}</div>
+            <div class="flashsale-item-price">Rp ${p.price.toLocaleString('id-ID')}</div>
+          </div>
+        `;
+        marqueeContent.appendChild(div);
+      });
+    }
+
+    function populatePopular(data) {
+      if (!popularGrid) return;
+      popularGrid.innerHTML = '';
+      data.products.filter(p => p.isPopular).forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'popular-item';
+        div.innerHTML = `
+          <div class="popular-item-image"><img src="${p.image}" onerror="handleImageError(this)"></div>
+          <div class="popular-item-title">${p.name}</div>
+          <a href="#" class="popular-item-buy-button">Beli - Rp ${p.price.toLocaleString('id-ID')}</a>
+        `;
+        popularGrid.appendChild(div);
+      });
+    }
+
+    function populateGrid(products) {
+      if (!productGrid) return;
+      productGrid.innerHTML = '';
+      products.forEach((p, i) => {
+        const div = document.createElement('div');
+        div.className = 'product-card animate-fade-in-up';
+        div.style.animationDelay = `${i * 0.1}s`;
+        div.innerHTML = `
+          <img src="${p.image}" alt="${p.name}" onerror="handleImageError(this)">
+          <div class="product-title">${p.name}</div>
+          <a href="#" class="buy-button">Beli Sekarang</a>
+        `;
+        productGrid.appendChild(div);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const data = await loadProductData();
+      populateFlashSale(data);
+      populatePopular(data);
+      populateGrid(data.products);
+
+      // Category Tabs
+      if (categoryTabs) {
+        categoryTabs.innerHTML = '';
+        data.categories.forEach((c, i) => {
+          const btn = document.createElement('button');
+          btn.className = `category-tab ${i === 0 ? 'active' : ''}`;
+          btn.textContent = c.name;
+          btn.onclick = () => {
+            document.querySelectorAll('.category-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            if(c.name === "Semua Produk") populateGrid(data.products);
+            else populateGrid(data.products.filter(p => p.category === c.name));
+          };
+          categoryTabs.appendChild(btn);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
