@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Pembayaran | GIVASTORE.ID</title>
+    <meta name="description" content="Konfirmasi pembayaran produk digital di GIVASTORE">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Pricedown -->
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/pricedown">
+    
+    <style>
+        /* ==================== BLUE GRADIENT THEME - SAMA PERSIS DENGAN PRODUCT.HTML ==================== */
+        :root {
+            --primary: #0A1931;
+            --primary-alt: #152C5B;
+            --accent: #1E40AF;
+            --accent-light: #3B82F6;
+            --accent-alt: #60A5FA;
+            --secondary: #06B6D4;
+            --secondary-alt: #0EA5E9;
+            --tertiary: #8B5CF6;
+            --text-dark: #0F172A;
+            --text: #1F2937;
+            --text-light: #64748B;
+            --light: #FFFFFF;
+            --light-gray: #F8FAFC;
+            --gray: #E2E8F0;
+            --border: #0F172A;
+            --shadow: 4px 4px 0px var(--border);
+            --shadow-sm: 2px 2px 0px var(--border);
+            --shadow-lg: 6px 6px 0px var(--border);
+            --shadow-blue: 4px 4px 0px rgba(30, 64, 175, 0.2);
+            --radius: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --error: #EF4444;
+            --warning: #F59E0B;
+            --success: #10B981;
+            
+            /* Blue Gradients */
+            --gradient-primary: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+            --gradient-secondary: linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%);
+            --gradient-dark: linear-gradient(135deg, #0A1931 0%, #152C5B 100%);
+            --gradient-light: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            --gradient-accent: linear-gradient(135deg, #1E40AF 0%, #8B5CF6 100%);
+        }
+
+        /* Dark mode variables */
+        body.dark-mode {
+            --primary: #0A1931;
+            --primary-alt: #152C5B;
+            --accent: #3B82F6;
+            --accent-light: #60A5FA;
+            --text-dark: #F8FAFC;
+            --text: #E2E8F0;
+            --text-light: #94A3B8;
+            --light: #111827;
+            --light-gray: #1F2937;
+            --gray: #374151;
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+            --shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 6px 6px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ==================== BASE STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            touch-action: manipulation;
+        }
+
+        @media (max-width: 768px) {
+            html { font-size: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            html { font-size: 14px; }
+        }
+
+        body {
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: var(--transition);
+            border: 3px solid var(--border);
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            hyphens: auto;
+        }
+
+        @media (min-width: 769px) {
+            body {
+                background-image: 
+                    linear-gradient(90deg, rgba(30, 64, 175, 0.03) 1px, transparent 1px),
+                    linear-gradient(0deg, rgba(30, 64, 175, 0.03) 1px, transparent 1px),
+                    radial-gradient(circle at 10% 20%, rgba(30, 64, 175, 0.05) 0%, transparent 25%),
+                    radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 25%);
+                background-size: 50px 50px, 50px 50px, auto, auto;
+                border-width: 6px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body { border-width: 3px; }
+        }
+
+        @media (max-width: 480px) {
+            body { border-width: 2px; }
+        }
+
+        /* ==================== FLOATING PARTICLES ==================== */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .particle:nth-child(n+4) { display: none; }
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: floatParticle 20s infinite linear;
+        }
+
+        .particle:nth-child(1) {
+            width: 60px; height: 60px;
+            top: 10%; left: 10%;
+            background: var(--accent);
+            animation-duration: 25s;
+        }
+
+        .particle:nth-child(2) {
+            width: 40px; height: 40px;
+            top: 60%; left: 85%;
+            background: var(--secondary);
+            animation-delay: -5s;
+            animation-duration: 30s;
+        }
+
+        .particle:nth-child(3) {
+            width: 30px; height: 30px;
+            top: 80%; left: 15%;
+            background: var(--tertiary);
+            animation-delay: -10s;
+            animation-duration: 35s;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0.1;
+            }
+            50% {
+                transform: translateY(-20px) translateX(20px) rotate(180deg);
+                opacity: 0.15;
+            }
+        }
+
+        /* ==================== NAVBAR - SAMA PERSIS ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--light);
+            background-image: var(--gradient-light);
+            border-bottom: 3px solid var(--border);
+            z-index: 1000;
+            padding: 0;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        @media (min-width: 769px) {
+            .navbar {
+                height: 80px;
+                border-bottom-width: 4px;
+            }
+            .navbar.scrolled { height: 70px; }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                height: 55px;
+                border-bottom-width: 2px;
+            }
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            overflow: visible;
+        }
+
+        @media (max-width: 768px) { .nav-container { padding: 0 12px; } }
+        @media (max-width: 480px) { .nav-container { padding: 0 10px; } }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            position: relative;
+            z-index: 2;
+            min-width: 120px;
+            max-width: 180px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 360px) { .logo { min-width: 100px; } }
+
+        .logo-image-container {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transform: rotate(-5deg);
+            transition: var(--transition);
+            overflow: hidden;
+            background: transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 769px) {
+            .logo-image-container {
+                width: 50px;
+                height: 50px;
+                border-width: 3px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image-container {
+                width: 35px;
+                height: 35px;
+                border-width: 2px;
+            }
+        }
+
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            padding: 2px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .logo-main {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--border);
+            line-height: 1;
+            letter-spacing: -0.3px;
+            position: relative;
+            font-family: 'Space Grotesk', sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (min-width: 769px) { .logo-main { font-size: 1.4rem; } }
+        @media (max-width: 480px) { .logo-main { font-size: 1.1rem; } }
+        @media (max-width: 360px) { .logo-main { font-size: 1rem; } }
+
+        .logo-main span { color: var(--accent); }
+
+        .logo-sub {
+            font-size: 0.6rem;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 2px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (min-width: 769px) { .logo-sub { font-size: 0.7rem; } }
+        @media (max-width: 480px) { .logo-sub { font-size: 0.55rem; } }
+
+        /* Desktop Navigation */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        @media (max-width: 768px) { .nav-menu { display: none; } }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--border);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.5rem 0.9rem;
+            position: relative;
+            transition: var(--transition);
+            border-radius: 6px;
+            background: transparent;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 769px) {
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
+                gap: 8px;
+            }
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--border);
+            background: var(--gradient-primary);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            border-radius: 6px;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+            -webkit-tap-highlight-color: transparent;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+                right: 12px;
+            }
+            .nav-container { padding-right: 60px; }
+        }
+
+        @media (max-width: 480px) {
+            .mobile-toggle {
+                width: 36px;
+                height: 36px;
+                right: 10px;
+            }
+            .nav-container { padding-right: 50px; }
+        }
+
+        .mobile-toggle i {
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: var(--light);
+            background-image: var(--gradient-light);
+            border-bottom: 3px solid var(--border);
+            z-index: 999;
+            padding: 15px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 4px 0px var(--border);
+            max-height: calc(100vh - 60px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        @media (min-width: 769px) {
+            .mobile-menu {
+                top: 80px;
+                max-height: calc(100vh - 80px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mobile-menu {
+                top: 55px;
+                max-height: calc(100vh - 55px);
+                padding: 12px;
+            }
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.9rem 1rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            transition: var(--transition);
+            background: var(--light);
+            font-size: 0.9rem;
+            -webkit-tap-highlight-color: transparent;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (max-width: 480px) {
+            .mobile-link {
+                padding: 0.8rem 0.9rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        .mobile-link:hover,
+        .mobile-link.active {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--border);
+            background: var(--gradient-dark);
+            color: white;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            border-radius: 6px;
+            display: flex;
+            font-size: 1rem;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* ==================== MAIN CONTAINER ==================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 90px auto 30px;
+            padding: 0 15px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @media (min-width: 769px) {
+            .main-container {
+                margin: 100px auto 40px;
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 70px auto 20px;
+                padding: 0 12px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==================== SECTION CARDS - SAMA DENGAN PRODUCT.HTML ==================== */
+        .section-card {
+            background: var(--light); 
+            border-radius: var(--radius);
+            padding: 1.5rem; 
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--border); 
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        @media (min-width: 769px) {
+            .section-card {
+                border-width: 4px;
+                border-radius: calc(var(--radius) + 4px);
+                box-shadow: var(--shadow-lg);
+            }
+        }
+        
+        .section-card:hover { 
+            border-color: var(--accent);
+            transform: translate(-4px, -4px); 
+            box-shadow: var(--shadow-lg); 
+        }
+
+        .section-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 1rem; 
+            margin-bottom: 1.5rem; 
+            padding-bottom: 1rem; 
+            border-bottom: 2px solid var(--border); 
+        }
+        
+        .step-badge {
+            background: var(--gradient-primary); 
+            color: white;
+            width: 32px; 
+            height: 32px; 
+            border-radius: 8px;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-weight: 700; 
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .section-header h2 { 
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            color: var(--text-dark); 
+            margin: 0; 
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* ==================== PAGE HEADER ==================== */
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .page-header p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ==================== STATUS BADGE ==================== */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid;
+            animation: pulse 2s infinite;
+        }
+
+        .status-pending {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+            border-color: var(--warning);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* ==================== ORDER DETAILS ==================== */
+        .order-details {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .order-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Order ID Section */
+        .order-id-section {
+            background: var(--light);
+            border: 3px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .order-id-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .order-id-value {
+            font-family: 'DM Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: 0.5px;
+            word-break: break-all;
+        }
+
+        /* Info Row */
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .info-value {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: right;
+        }
+
+        /* Account Info Card */
+        .account-info-card {
+            background: var(--light-gray);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .account-field {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .account-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .account-label {
+            min-width: 120px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .account-value {
+            color: var(--text-dark);
+            font-weight: 500;
+            word-break: break-word;
+            flex: 1;
+        }
+
+        /* Price Breakdown */
+        .price-breakdown {
+            background: var(--light-gray);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            padding: 0.5rem 0;
+        }
+
+        .price-item:not(:last-child) {
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .price-item.discount .price-value {
+            color: var(--success);
+        }
+
+        .price-item.total {
+            margin-top: 0.75rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--border);
+            font-size: 1.1rem;
+        }
+
+        .price-item.total .price-label {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .price-item.total .price-value {
+            color: var(--accent);
+            font-weight: 800;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .price-label {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .price-value {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* Promo Badge */
+        .promo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 0.5rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        /* ==================== ACTION BUTTONS ==================== */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 480px) {
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary {
+            background: var(--light);
+            color: var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gray);
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--gradient-accent);
+            transform: translate(-4px, -4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ==================== PAYMENT NOTICE ==================== */
+        .payment-notice {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .payment-notice p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        .payment-notice strong {
+            color: var(--text-dark);
+        }
+
+        /* ==================== LOADING STATES ==================== */
+        .loading-skeleton {
+            background: linear-gradient(90deg, var(--light-gray) 25%, var(--gray) 50%, var(--light-gray) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* ==================== EMPTY STATE ==================== */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            color: var(--danger);
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .empty-state h2 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .empty-state p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 400px;
+            margin: 0 auto 2rem;
+        }
+
+        /* ==================== FOOTER - SAMA DENGAN PRODUCT.HTML ==================== */
+        .footer {
+            background: var(--gradient-dark);
+            border-top: 3px solid var(--border);
+            padding: 40px 15px 20px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 769px) {
+            .footer {
+                border-top-width: 4px;
+                padding: 60px 20px 30px;
+                margin-top: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                padding: 30px 12px 15px;
+                margin-top: 30px;
+            }
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .footer-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .footer-logo-image-container {
+            position: relative;
+            width: 35px;
+            height: 35px;
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transform: rotate(-5deg);
+            transition: var(--transition);
+            overflow: hidden;
+            background: transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 769px) {
+            .footer-logo-image-container {
+                width: 40px;
+                height: 40px;
+                border-width: 3px;
+            }
+        }
+
+        .footer-logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo-main {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .footer-logo-sub {
+            font-size: 0.6rem;
+            color: var(--accent-alt);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 2px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-about {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+            margin-bottom: 15px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+        }
+
+        @media (min-width: 769px) {
+            .footer-about {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+        }
+
+        .footer-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        @media (min-width: 769px) {
+            .footer-title {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        @media (min-width: 769px) {
+            .footer-title::after {
+                width: 40px;
+                height: 3px;
+            }
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            padding: 4px 0;
+            -webkit-tap-highlight-color: transparent;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 769px) {
+            .footer-link {
+                font-size: 0.95rem;
+                gap: 10px;
+            }
+        }
+
+        .footer-link:hover {
+            color: var(--accent-alt);
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            border-radius: 8px;
+            background: var(--light);
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (min-width: 769px) {
+            .footer-social a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .footer-social a:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow);
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8rem;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+        }
+
+        @media (min-width: 769px) {
+            .footer-bottom {
+                margin-top: 40px;
+                padding-top: 30px;
+                border-top-width: 2px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .payment-method {
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: var(--light);
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            color: var(--text-dark);
+            font-weight: 800;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        @media (min-width: 769px) {
+            .payment-method {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ==================== WHATSAPP FLOAT ==================== */
+        .help-float {
+            position: fixed; 
+            bottom: 80px; 
+            right: 15px;
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-size: 1.5rem; 
+            box-shadow: var(--shadow);
+            z-index: 90; 
+            cursor: pointer; 
+            transition: var(--transition);
+            text-decoration: none;
+            border: 2px solid white;
+        }
+        
+        @media (min-width: 769px) {
+            .help-float {
+                width: 56px;
+                height: 56px;
+                font-size: 1.75rem;
+                bottom: 100px;
+                right: 20px;
+            }
+        }
+        
+        .help-float:hover { 
+            transform: scale(1.1) rotate(15deg); 
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==================== UTILITY CLASSES ==================== */
+        .text-overflow-safe {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+        }
+
+        /* ==================== TOUCH-FRIENDLY STYLES ==================== */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-link:hover,
+            .mobile-link:hover,
+            .btn:hover,
+            .help-float:hover,
+            .footer-link:hover,
+            .footer-social a:hover {
+                transform: none !important;
+            }
+            
+            .nav-link:active,
+            .mobile-link:active,
+            .btn:active,
+            .help-float:active,
+            .footer-link:active,
+            .footer-social a:active {
+                transform: scale(0.98) !important;
+                opacity: 0.9;
+            }
+        }
+
+        /* Safe area insets for notch phones */
+        @supports (padding: max(0px)) {
+            body {
+                padding-top: calc(60px + env(safe-area-inset-top));
+            }
+            
+            .navbar {
+                padding-top: env(safe-area-inset-top);
+                height: calc(60px + env(safe-area-inset-top));
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+            }
+            
+            .mobile-menu {
+                top: calc(60px + env(safe-area-inset-top));
+                max-height: calc(100vh - 60px - env(safe-area-inset-top));
+                padding-left: max(15px, env(safe-area-inset-left));
+                padding-right: max(15px, env(safe-area-inset-right));
+            }
+            
+            .help-float {
+                bottom: calc(80px + env(safe-area-inset-bottom));
+                right: calc(15px + env(safe-area-inset-right));
+            }
+            
+            .footer {
+                padding-left: max(15px, env(safe-area-inset-left));
+                padding-right: max(15px, env(safe-area-inset-right));
+            }
+            
+            @media (min-width: 769px) {
+                body {
+                    padding-top: calc(80px + env(safe-area-inset-top));
+                }
+                
+                .navbar {
+                    height: calc(80px + env(safe-area-inset-top));
+                }
+                
+                .mobile-menu {
+                    top: calc(80px + env(safe-area-inset-top));
+                    max-height: calc(100vh - 80px - env(safe-area-inset-top));
+                }
+                
+                .help-float {
+                    bottom: calc(100px + env(safe-area-inset-bottom));
+                    right: calc(20px + env(safe-area-inset-right));
+                }
+                
+                .footer {
+                    padding-left: max(20px, env(safe-area-inset-left));
+                    padding-right: max(20px, env(safe-area-inset-right));
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Background Particles -->
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="../index.html" class="logo">
+                <div class="logo-image-container">
+                    <img src="../image/icon.jpg" alt="GIVASTORE Logo" class="logo-image" 
+                         onerror="this.src='https://via.placeholder.com/40x40/1E40AF/FFFFFF?text=GS'; this.style.objectFit='cover';">
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">GIVA<span>STORE</span></div>
+                    <div class="logo-sub">APP PREMS</div>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="../pages/product.html" class="nav-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Products</span>
+                </a>
+                <a href="https://wa.me/6285189139082?text=Suntik Sosmed" target="_blank" class="nav-link">
+                    <i class="fas fa-rocket"></i>
+                    <span>Suntik Sosmed</span>
+                </a>
+                <a href="../kontak.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="../caraorder.html" class="nav-link">
+                    <i class="fas fa-question-circle"></i>
+                    <span>How to Order</span>
+                </a>
+                <a href="https://whatsapp.com/channel/0029Vb7Ff3HAu3aNjiRSIw2g" target="_blank" class="nav-link">
+                    <i class="fas fa-star"></i>
+                    <span>Testimoni</span>
+                </a>
+            </div>
+
+            <!-- Dark Mode Toggle -->
+            <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="darkModeIcon"></i>
+            </button>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html" class="mobile-link">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="../pages/product.html" class="mobile-link">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Products</span>
+        </a>
+        <a href="https://wa.me/6285189139082?text=Suntik Sosmed" target="_blank" class="mobile-link">
+            <i class="fas fa-rocket"></i>
+            <span>Suntik Sosmed</span>
+        </a>
+        <a href="../kontak.html" class="mobile-link">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+        <a href="../caraorder.html" class="mobile-link">
+            <i class="fas fa-question-circle"></i>
+            <span>How to Order</span>
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb7Ff3HAu3aNjiRSIw2g" target="_blank" class="mobile-link">
+            <i class="fas fa-star"></i>
+            <span>Testimoni</span>
+        </a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Detail Pesanan</h1>
+            <p>Tinjau informasi pesanan Anda sebelum melanjutkan ke pembayaran</p>
+        </div>
+
+        <!-- Status Badge -->
+        <div class="status-badge status-pending">
+            <i class="fas fa-clock"></i>
+            <span>Menunggu Pembayaran</span>
+        </div>
+
+        <!-- Order Details -->
+        <div class="order-details">
+            <!-- Left Column: Order Info -->
+            <div>
+                <!-- Order ID Section -->
+                <div class="section-card fade-in">
+                    <div class="section-header">
+                        <div class="step-badge">1</div>
+                        <h2>ID Pesanan</h2>
+                    </div>
+                    <div class="order-id-section">
+                        <div class="order-id-label">
+                            <i class="fas fa-hashtag"></i>
+                            <span>Kode Pesanan Anda:</span>
+                        </div>
+                        <div id="order-id-value" class="order-id-value">GIVA-<span id="order-id">...</span></div>
+                    </div>
+                </div>
+
+                <!-- Product Information -->
+                <div class="section-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="section-header">
+                        <div class="step-badge">2</div>
+                        <h2>Informasi Produk</h2>
+                    </div>
+                    
+                    <div id="product-details">
+                        <!-- Loading skeleton -->
+                        <div class="loading-skeleton" style="height: 20px; width: 70%; margin-bottom: 1rem;"></div>
+                        <div class="loading-skeleton" style="height: 20px; width: 50%; margin-bottom: 1rem;"></div>
+                        <div class="loading-skeleton" style="height: 20px; width: 30%;"></div>
+                    </div>
+                </div>
+
+                <!-- Account Data -->
+                <div class="section-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="section-header">
+                        <div class="step-badge">3</div>
+                        <h2>Data Akun</h2>
+                    </div>
+                    
+                    <div id="account-details" class="account-info-card">
+                        <!-- Loading skeleton -->
+                        <div class="loading-skeleton" style="height: 20px; width: 100%; margin-bottom: 1rem;"></div>
+                        <div class="loading-skeleton" style="height: 20px; width: 90%; margin-bottom: 1rem;"></div>
+                        <div class="loading-skeleton" style="height: 20px; width: 80%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Order Summary -->
+            <div>
+                <div class="section-card fade-in" style="animation-delay: 0.3s;">
+                    <div class="section-header">
+                        <div class="step-badge">4</div>
+                        <h2>Rincian Biaya</h2>
+                    </div>
+                    
+                    <div id="price-breakdown" class="price-breakdown">
+                        <!-- Loading skeleton -->
+                        <div class="loading-skeleton" style="height: 20px; width: 100%; margin-bottom: 1rem;"></div>
+                        <div class="loading-skeleton" style="height: 20px; width: 100%; margin-bottom: 1rem;"></div>
+                        <div class="loading-skeleton" style="height: 30px; width: 100%;"></div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <a href="javascript:history.back()" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Kembali</span>
+                        </a>
+                        
+                        <a href="#" id="pay-button" class="btn btn-primary">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Bayar Sekarang</span>
+                        </a>
+                    </div>
+
+                    <!-- Payment Notice -->
+                    <div class="payment-notice">
+                        <p>
+                            <strong>Perhatian:</strong> Pesanan akan otomatis dibatalkan jika pembayaran tidak dilakukan dalam waktu <strong>30 menit</strong>.
+                        </p>
+                        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                            <i class="fas fa-qrcode"></i> Pembayaran akan dialihkan ke sistem pembayaran <strong>Pakasir</strong> yang aman dan terpercaya.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER - SAMA DENGAN PRODUCT.HTML -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo-container">
+                        <div class="footer-logo-image-container">
+                            <img src="../image/icon.jpg" alt="GivaStore Logo" class="footer-logo-image" 
+                                 onerror="this.src='https://via.placeholder.com/35x35/1E40AF/FFFFFF?text=GS'; this.style.objectFit='cover';">
+                        </div>
+                        <div class="footer-logo-text">
+                            <div class="footer-logo-main">GIVASTORE</div>
+                            <div class="footer-logo-sub">APP PREMS</div>
+                        </div>
+                    </div>
+                    <p class="footer-about text-overflow-safe">
+                        🚀 GivaStore App - Premium digital services and social media solutions. 
+                        Layanan terpercaya dengan kualitas premium sejak 2024.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/6285189139082" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://instagram.com/givastore.id" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/givastoreid" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="mailto:xyzopedia@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-title text-overflow-safe">Navigasi</h3>
+                    <div class="footer-links">
+                        <a href="../index.html" class="footer-link">
+                            <i class="fas fa-arrow-right"></i>
+                            Home
+                        </a>
+                        <a href="../pages/product.html" class="footer-link">
+                            <i class="fas fa-arrow-right"></i>
+                            Products
+                        </a>
+                        <a href="https://wa.me/6285189139082?text=Suntik Sosmed" target="_blank" class="footer-link">
+                            <i class="fas fa-arrow-right"></i>
+                            Suntik Sosmed
+                        </a>
+                        <a href="../kontak.html" class="footer-link">
+                            <i class="fas fa-arrow-right"></i>
+                            Contact
+                        </a>
+                        <a href="../caraorder.html" class="footer-link">
+                            <i class="fas fa-arrow-right"></i>
+                            How to Order
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-title text-overflow-safe">Layanan</h3>
+                    <div class="footer-links">
+                        <a href="../pages/product.html" class="footer-link">
+                            <i class="fas fa-arrow-right"></i>
+                            Digital Products
+                        </a>
+                        <a href="https://wa.me/6285189139082?text=Suntik Sosmed" target="_blank" class="footer-link">
+                            <i class="fas fa-arrow-right"></i>
+                            Social Media Injection
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029Vb7Ff3HAu3aNjiRSIw2g" target="_blank" class="footer-link">
+                            <i class="fas fa-arrow-right"></i>
+                            Testimonials
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links-column">
+                    <h3 class="footer-title text-overflow-safe">Kontak Kami</h3>
+                    <div class="footer-links">
+                        <a href="https://wa.me/6285189139082" target="_blank" class="footer-link">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp: 6285189139082
+                        </a>
+                        <a href="https://instagram.com/givastore.id" target="_blank" class="footer-link">
+                            <i class="fab fa-instagram"></i>
+                            Instagram: givastore.id
+                        </a>
+                        <a href="https://t.me/givastoreid" target="_blank" class="footer-link">
+                            <i class="fab fa-telegram"></i>
+                            Telegram: givastoreid
+                        </a>
+                        <a href="mailto:xyzopedia@gmail.com" class="footer-link">
+                            <i class="fas fa-envelope"></i>
+                            Email: xyzopedia@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom text-overflow-safe">
+                <div class="payment-methods">
+                    <div class="payment-method"><i class="fas fa-qrcode"></i> QRIS</div>
+                    <div class="payment-method">Pakasir</div>
+                </div>
+                <p>&copy; <span id="currentYear"></span> GivaStore App Prems. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.7);">
+                    Premium digital services & social media solutions
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/6285189139082?text=Halo%20Admin%20GIVASTORE%2C%20saya%20butuh%20bantuan%20untuk%20pembayaran" target="_blank" class="help-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Dark Mode Functionality
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            const currentTheme = localStorage.getItem('theme');
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const darkModeIcon = document.getElementById('darkModeIcon');
+            
+            if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+                document.body.classList.add('dark-mode');
+                if (darkModeIcon) {
+                    darkModeIcon.classList.remove('fa-moon');
+                    darkModeIcon.classList.add('fa-sun');
+                }
+            }
+
+            if (darkModeToggle) {
+                darkModeToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('dark-mode');
+                    
+                    if (document.body.classList.contains('dark-mode')) {
+                        localStorage.setItem('theme', 'dark');
+                        if (darkModeIcon) {
+                            darkModeIcon.classList.remove('fa-moon');
+                            darkModeIcon.classList.add('fa-sun');
+                        }
+                    } else {
+                        localStorage.setItem('theme', 'light');
+                        if (darkModeIcon) {
+                            darkModeIcon.classList.remove('fa-sun');
+                            darkModeIcon.classList.add('fa-moon');
+                        }
+                    }
+                });
+            }
+
+            // Mobile Menu Toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileIcon = mobileToggle ? mobileToggle.querySelector('i') : null;
+
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('active');
+                    if (mobileIcon) {
+                        mobileIcon.classList.toggle('fa-bars');
+                        mobileIcon.classList.toggle('fa-times');
+                    }
+                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (mobileToggle && !mobileToggle.contains(event.target) && 
+                    mobileMenu && !mobileMenu.contains(event.target) && 
+                    mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    if (mobileIcon) {
+                        mobileIcon.classList.remove('fa-times');
+                        mobileIcon.classList.add('fa-bars');
+                    }
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Close mobile menu when clicking a link
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (mobileMenu) {
+                        mobileMenu.classList.remove('active');
+                        if (mobileIcon) {
+                            mobileIcon.classList.remove('fa-times');
+                            mobileIcon.classList.add('fa-bars');
+                        }
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            let lastScrollTop = 0;
+            
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    // Add scrolled class when scrolling down
+                    if (scrollTop > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                    
+                    // Hide navbar on scroll down, show on scroll up (mobile only)
+                    if (window.innerWidth <= 768) {
+                        if (scrollTop > lastScrollTop && scrollTop > 100) {
+                            // Scrolling down
+                            navbar.style.transform = 'translateY(-100%)';
+                        } else {
+                            // Scrolling up
+                            navbar.style.transform = 'translateY(0)';
+                        }
+                    }
+                    
+                    lastScrollTop = scrollTop;
+                });
+            }
+
+            // Fade-in animation for elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => observer.observe(el));
+
+            // Load order data
+            const orderData = JSON.parse(localStorage.getItem('ProductOrderData') || '{}');
+            const productName = localStorage.getItem('productName') || orderData.product || 'Produk Digital';
+            const productPrice = localStorage.getItem('productPrice') || orderData.price || 0;
+            const customerWhatsapp = localStorage.getItem('customerWhatsapp') || orderData.whatsapp || '-';
+            const accountData = JSON.parse(localStorage.getItem('accountData') || orderData.accountData || '{}');
+            const quantity = orderData.quantity || 1;
+            const appliedPromo = orderData.appliedPromo || null;
+            
+            // Use existing order ID or create new one
+            const orderId = orderData.order_id || ('GIVA-' + Date.now().toString().substring(5) + Math.floor(Math.random() * 1000).toString().padStart(3, '0'));
+            
+            // Update orderData with order_id
+            if (!orderData.order_id) {
+                orderData.order_id = orderId;
+            }
+            
+            // Calculate total price
+            let subtotal = parseInt(productPrice) * quantity;
+            let discount = 0;
+            let total = subtotal;
+            
+            if (appliedPromo) {
+                discount = subtotal * appliedPromo.discount;
+                total = subtotal - discount;
+            }
+            
+            // Update orderData with new totals
+            orderData.total = total;
+            orderData.subtotal = subtotal;
+            orderData.discount = discount;
+            orderData.appliedPromo = appliedPromo;
+            
+            // Save back to localStorage
+            localStorage.setItem('ProductOrderData', JSON.stringify(orderData));
+            
+            // Update order ID display
+            document.getElementById('order-id').textContent = orderId;
+
+            // Display product information
+            const productDetails = document.getElementById('product-details');
+            if (productDetails) {
+                productDetails.innerHTML = `
+                    <div class="info-row">
+                        <div class="info-label">Nama Produk</div>
+                        <div class="info-value">${productName}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Harga Satuan</div>
+                        <div class="info-value">Rp ${parseInt(productPrice).toLocaleString('id-ID')}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Jumlah</div>
+                        <div class="info-value">${quantity} pcs</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Subtotal</div>
+                        <div class="info-value">Rp ${subtotal.toLocaleString('id-ID')}</div>
+                    </div>
+                `;
+            }
+
+            // Display price breakdown
+            const priceBreakdown = document.getElementById('price-breakdown');
+            if (priceBreakdown) {
+                let html = `
+                    <div class="price-item">
+                        <div class="price-label">Subtotal</div>
+                        <div class="price-value">Rp ${subtotal.toLocaleString('id-ID')}</div>
+                    </div>
+                `;
+                
+                if (appliedPromo) {
+                    html += `
+                        <div class="price-item discount">
+                            <div class="price-label">Diskon ${appliedPromo.name}</div>
+                            <div class="price-value">- Rp ${Math.round(discount).toLocaleString('id-ID')}</div>
+                        </div>
+                    `;
+                }
+                
+                html += `
+                    <div class="price-item total">
+                        <div class="price-label">Total Pembayaran</div>
+                        <div class="price-value">Rp ${total.toLocaleString('id-ID')}</div>
+                    </div>
+                `;
+                
+                if (appliedPromo) {
+                    html += `<div class="promo-badge"><i class="fas fa-tag"></i> Kode promo ${appliedPromo.name} diterapkan</div>`;
+                }
+                
+                priceBreakdown.innerHTML = html;
+            }
+
+            // Display account data
+            const accountDetails = document.getElementById('account-details');
+            if (accountDetails) {
+                let accountHTML = `
+                    <div class="account-field">
+                        <div class="account-label">WhatsApp</div>
+                        <div class="account-value">${customerWhatsapp}</div>
+                    </div>
+                `;
+                
+                // Add other account fields
+                for (const [key, value] of Object.entries(accountData)) {
+                    if (value && value.trim() !== '') {
+                        const label = key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
+                        accountHTML += `
+                            <div class="account-field">
+                                <div class="account-label">${label}</div>
+                                <div class="account-value">${value}</div>
+                            </div>
+                        `;
+                    }
+                }
+                
+                accountDetails.innerHTML = accountHTML || '<div class="account-field"><div class="account-label">Tidak ada data tambahan</div></div>';
+            }
+
+            // Update pay button URL untuk redirect ke Pakasir
+            const payButton = document.getElementById('pay-button');
+            if (payButton) {
+                // Simpan total ke localStorage untuk backup
+                localStorage.setItem('finalTotal', total);
+                
+                // Buat URL Pakasir sesuai format yang diminta
+                const pakasirUrl = `https://app.pakasir.com/pay/givastore/${total}?order_id=${orderId}&redirect=https://givastore.biz.id/success`;
+                
+                // Update href tombol bayar
+                payButton.href = pakasirUrl;
+                
+                // Tambahkan event listener untuk loading state
+                payButton.addEventListener('click', function(e) {
+                    // Tampilkan loading state
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengarahkan ke Pembayaran...';
+                    
+                    // Simpan data ke localStorage untuk backup
+                    localStorage.setItem('lastOrderData', JSON.stringify({
+                        orderId: orderId,
+                        productName: productName,
+                        total: total,
+                        customerWhatsapp: customerWhatsapp,
+                        pakasirUrl: pakasirUrl
+                    }));
+                    
+                    // Biarkan browser melanjutkan ke URL Pakasir
+                });
+            }
+
+            // Check if data is empty
+            if (!productName || productPrice <= 0 || productPrice === '0') {
+                document.body.innerHTML = `
+                    <div class="main-container">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">⚠️</div>
+                            <h2>Data Pesanan Tidak Ditemukan</h2>
+                            <p>Silakan kembali ke halaman produk dan lakukan pemesanan ulang.</p>
+                            <a href="../index.html" class="btn btn-primary" style="display: inline-flex; text-decoration: none;">
+                                <i class="fas fa-home"></i>
+                                <span>Kembali ke Beranda</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
