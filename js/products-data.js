@@ -64,7 +64,7 @@ window.productData = {
       id: 4,
       name: "YouTube Premium",
       category: "Streaming",
-      price: 8000,
+      price: 3500,
       originalPrice: 65000,
       image: "../image/youtube.png",
       discount: 95,
