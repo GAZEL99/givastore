@@ -19,18 +19,22 @@ const generateOrderId = () => {
     return `GIVA-${timestamp}-${randomNum}`;
 };
 
-// Helper: Parse URL path
-const getEndpoint = (url) => {
-    const path = url.split('?')[0]; // Remove query params
-    const parts = path.split('/').filter(p => p);
+// Helper: Parse endpoint dari request
+const getEndpoint = (req) => {
+    // Memastikan path diambil dengan benar meskipun di Vercel
+    const urlPath = req.url.split('?')[0]; 
+    const parts = urlPath.split('/').filter(p => p);
     
     // Format: /api/create-qris, /api/check-status/ORDER_ID, etc
     if (parts.length >= 2 && parts[0] === 'api') {
+        // Cek jika rutenya adalah /api/check-status/ORDER_ID
         if (parts[1] === 'check-status' && parts[2]) {
             return { endpoint: 'check-status', order_id: parts[2] };
         }
+        // Untuk endpoint lain seperti create-qris, webhook, cancel-transaction
         return { endpoint: parts[1] };
     }
+    
     return { endpoint: 'unknown' };
 };
 
@@ -46,7 +50,7 @@ module.exports = async (req, res) => {
         return;
     }
 
-    const { endpoint, order_id } = getEndpoint(req.url);
+    const { endpoint, order_id } = getEndpoint(req);
     console.log(`📡 API Request: ${req.method} ${endpoint}`, { order_id });
 
     try {
