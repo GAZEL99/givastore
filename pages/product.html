@@ -2988,7 +2988,7 @@
                     localStorage.setItem('ProductOrderData', JSON.stringify(orderData));
                     
                     // Redirect ke halaman bayar (halaman konfirmasi)
-                    const url = `pages/bayar?order_id=${orderId}&product=${encodeURIComponent(productName)}&amount=${totalPrice}&wa=${fullWhatsappNumber}`;
+                    const url = `bayar?order_id=${orderId}&product=${encodeURIComponent(productName)}&amount=${totalPrice}&wa=${fullWhatsappNumber}`;
                     
                     console.log('Redirect ke halaman bayar:', url);
                     
