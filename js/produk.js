@@ -200,7 +200,7 @@ const semuaProduk = {
       },
       {
         name: "IQIYI Premium 1 Tahun",
-        price: 15000,
+        price: 18000,
         duration: "1 TAHUN"
       }
     ]
@@ -492,19 +492,15 @@ const semuaProduk = {
     packages: [
       {
         name: "CapCut Private 7 Hari",
-        price: 1300,
+        price: 2300,
         duration: "7 HARI"
       },
       {
         name: "CapCut Private 14 Hari",
-        price: 2550,
+        price: 3550,
         duration: "14 HARI"
       },
-      {
-        name: "CapCut Private 21 Hari",
-        price: 4500,
-        duration: "21 HARI"
-      },
+      
       {
         name: "CapCut Private 28 Hari",
         price: 6800,
