@@ -508,12 +508,12 @@ const semuaProduk = {
       },
       {
         name: "CapCut Private 35 Hari",
-        price: 7500,
+        price: 9500,
         duration: "35 HARI"
       },
       {
         name: "CapCut Private 42 Hari",
-        price: 9800,
+        price: 12800,
         duration: "42 HARI"
       }
     ]
