@@ -249,17 +249,17 @@ const semuaProduk = {
     ],
     packages: [
       {
-        name: "LOKLOK Sharing Basic 1 Month (Bisa TV)",
-        price: 18500,
+        name: "LOKLOK Sharing Standar 1 Month (Bisa TV)",
+        price: 23500,
         duration: "1 BULAN"
       },
       {
         name: "LOKLOK Sharing Basic 1 Month (3 User)",
-        price: 20000,
+        price: 21000,
         duration: "1 BULAN"
       },
       {
-        name: "LOKLOK Sharing Premium 1 Month (Bisa TV)",
+        name: "LOKLOK Sharing Basic Premium 1 Month (GaBisa TV)",
         price: 20000,
         duration: "1 BULAN"
       }
