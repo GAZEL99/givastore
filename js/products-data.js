@@ -29,22 +29,7 @@ window.productData = {
       stock: 100,
       sold: 2500
     },
-    {
-      id: 2,
-      name: "Vidio Premium",
-      category: "Streaming",
-      price: 15500,
-      originalPrice: 35000,
-      image: "../image/vidio.png",
-      discount: 56,
-      isPopular: false,
-      isFlashSale: true,
-      pageUrl: "pages/product.html?product=Vidio",
-      description: "Streaming film dan series lokal terbaik",
-      features: ["Aktif Instan", "Mobile Only", "Sharing"],
-      stock: 80,
-      sold: 1800
-    },
+    
     {
       id: 3,
       name: "Disney+",
