@@ -668,7 +668,7 @@ const semuaProduk = {
     packages: [
       {
         name: "Dazzcam Lifetime",
-        price: 17000,
+        price: 25000,
         duration: "Ios Only"
       }
     ]
