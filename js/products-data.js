@@ -290,71 +290,8 @@ window.productData = {
       stock: 100,
       sold: 1800
     },
-    {
-      id: 19,
-      name: "Ibis Paint X Pro",
-      category: "Editing",
-      price: 18000,
-      originalPrice: 50000,
-      image: "../image/ibispaint.png",
-      discount: 64,
-      isPopular: false,
-      isFlashSale: false,
-      pageUrl: "pages/product.html?product=Ibis%20Paint%20X",
-      description: "Ibis Paint X untuk digital art",
-      features: ["Sharing Account", "1 Tahun", "All Brushes"],
-      stock: 40,
-      sold: 900
-    },
-    {
-      id: 20,
-      name: "Alight Motion Pro",
-      category: "Editing",
-      price: 3500,
-      originalPrice: 15000,
-      image: "../image/alight-motion.png",
-      discount: 77,
-      isPopular: true,
-      isFlashSale: true,
-      pageUrl: "pages/product.html?product=Alight%20Motion",
-      description: "Alight Motion Pro untuk motion graphics",
-      features: ["Premium Private", "Akun dari Kami", "All Effects"],
-      stock: 180,
-      sold: 3500
-    },
-    {
-      id: 21,
-      name: "Dazzcam Pro",
-      category: "Editing",
-      price: 17000,
-      originalPrice: 30000,
-      image: "../image/dazzcam.png",
-      discount: 43,
-      isPopular: false,
-      isFlashSale: false,
-      pageUrl: "pages/product.html?product=Dazzcam",
-      description: "Dazzcam untuk editing foto efek vintage",
-      features: ["Lifetime Access", "All Filters", "No Watermark"],
-      stock: 45,
-      sold: 620
-    },
-    {
-      id: 22,
-      name: "OldRoll Pro",
-      category: "Editing",
-      price: 13000,
-      originalPrice: 25000,
-      image: "../image/oldroll.png",
-      discount: 48,
-      isPopular: false,
-      isFlashSale: false,
-      pageUrl: "pages/product.html?product=Oldroll",
-      description: "OldRoll untuk efek foto vintage",
-      features: ["Lifetime Access", "All Filters", "Premium"],
-      stock: 35,
-      sold: 420
-    },
-
+    
+    
     // 🔥 AI
     {
       id: 23,
