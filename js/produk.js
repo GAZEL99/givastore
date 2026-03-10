@@ -618,7 +618,7 @@ const semuaProduk = {
     packages: [
       {
         name: "IBIS PAINT X Sharing",
-        price: 18000,
+        price: 20000,
         duration: "1 TAHUN"
       }
     ]
