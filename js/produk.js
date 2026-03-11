@@ -452,17 +452,17 @@ const semuaProduk = {
       },
       {
         name: "Canva 1 Tahun Member + Desain",
-        price: 7500,
+        price: 10500,
         duration: "1 TAHUN"
       },
       {
         name: "Canva 1 Bulan Admin",
-        price: 3500,
+        price: 7500,
         duration: "1 BULAN"
       },
       {
         name: "Canva Owner 1 Bulan",
-        price: 6500,
+        price: 8500,
         duration: "1 BULAN"
       },
       {
