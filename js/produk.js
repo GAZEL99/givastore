@@ -718,19 +718,10 @@ const semuaProduk = {
       }
     ],
     packages: [
-      {
-        name: "ChatGPT 1 Tahun Nogar",
-        price: 13000,
-        duration: "1 TAHUN"
-      },
-      {
-        name: "ChatGPT 1 Bulan Fullgar (Head Team)",
-        price: 27000,
-        duration: "1 BULAN"
-      },
+      
       {
         name: "ChatGPT 1 Bulan Plus Fullgar",
-        price: 18000,
+        price: 20000,
         duration: "1 BULAN"
       }
     ]
