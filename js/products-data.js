@@ -282,7 +282,7 @@ window.productData = {
       id: 23,
       name: "ChatGPT Plus",
       category: "AI",
-      price: 13000,
+      price: 20000,
       originalPrice: 60000,
       image: "../image/chatgpt.png",
       discount: 78,
