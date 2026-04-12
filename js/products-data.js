@@ -208,7 +208,22 @@ window.productData = {
     },
 
     // 🔥 MUSIK (HANYA APPLE MUSIC, SPOTIFY DIHAPUS)
-    
+            {
+      id: 14,
+      name: "Apple Music",
+      category: "Musik",
+      price: 8000,
+      originalPrice: 20000,
+      image: "../image/applemusic.png",
+      discount: 60,
+      isPopular: false,
+      isFlashSale: true,
+      pageUrl: "pages/product.html?product=Apple%20Music",
+      description: "Apple Music dengan jutaan lagu",
+      features: ["Famplan", "No Ads", "Download Songs"],
+      stock: 50,
+      sold: 1600
+    },
     
     // 🔥 EDITING
     {
