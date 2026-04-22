@@ -338,8 +338,8 @@ window.productData = {
       isPopular: true,
       isFlashSale: true,
       pageUrl: "pages/product.html?product=alight motion",
-      description: "Capcut Pro untuk editing video",
-      features: ["No Watermark", "7 Hari", "Private Account"],
+      description: "",
+      features: [""],
       stock: 150,
       sold: 2200
     }
