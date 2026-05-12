@@ -137,7 +137,7 @@ const semuaProduk = {
         name: "YOUTUBE Famplan (bisa login yt music)",
         price: 18500,
         duration: "2 BULAN"
-      },
+      }
     ]
   },
 
