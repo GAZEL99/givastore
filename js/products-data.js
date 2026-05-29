@@ -242,7 +242,7 @@ window.productData = {
     },
     {
       id: 16,
-      name: "No Stock ",
+      name: "NO STOCK !!!",
       category: "Editing",
       price: 0,
       originalPrice: 10000,
