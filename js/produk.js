@@ -476,9 +476,9 @@ const semuaProduk = {
     ],
     packages: [
       {
-        name: "Capcut TANYAKAN STOCK PADA ADMIN!!!!",
-        price: 30000,
-        duration: "1 BULAN, TANYAKAN STOCK PADA ADMIN!!!!"
+        name: "Capcut ",
+        price: 60000,
+        duration: "1 BULAN"
       
         }
     ]
