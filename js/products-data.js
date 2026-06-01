@@ -242,9 +242,9 @@ window.productData = {
     },
     {
       id: 16,
-      name: "NO STOCK !!!",
+      name: "TANYA STOCK PADA ADMIN",
       category: "Editing",
-      price: 0,
+      price: 30000,
       originalPrice: 10000,
       image: "../image/capcut.png",
       discount: 65,
