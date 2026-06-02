@@ -1,4 +1,4 @@
-// products-data.js - Data produk untuk halaman utama (DIPERBAIKI & DISINKRONKAN)
+ko// products-data.js - Data produk untuk halaman utama (DIPERBAIKI & DISINKRONKAN)
 window.productData = {
   categories: [
     { id: 0, name: "Semua Produk" },
@@ -213,7 +213,7 @@ window.productData = {
       originalPrice: 20000,
       image: "../image/applemusic.png",
       discount: 60,
-      isPopular: false,
+      isPopular: true,
       isFlashSale: false,
       pageUrl: "pages/product.html?product=Apple%20Music",
       description: "Apple Music dengan jutaan lagu",
@@ -225,7 +225,7 @@ window.productData = {
       id: 26, // ID disesuaikan agar unik tidak tabrakan dengan Duolingo
       name: "Spotify Premium",
       category: "Musik", // Disamakan menjadi Musik (Bahasa Indonesia)
-      price: 22800,
+      price: 15800,
       originalPrice: 60000,
       image: "../image/spotify.png",
       discount: 62,
@@ -329,7 +329,7 @@ window.productData = {
       originalPrice: 60000,
       image: "../image/chatgpt.png",
       discount: 67,
-      isPopular: true,
+      isPopular: false,
       isFlashSale: true,
       pageUrl: "pages/product.html?product=ChatGPT",
       description: "ChatGPT dengan akses premium untuk AI",
